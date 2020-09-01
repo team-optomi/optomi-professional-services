@@ -16,28 +16,33 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
         query {
-            allWordpressWpHomeSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 3}}}}) {
+            allWordpressWpCustomPage(filter: {categories: {elemMatch: {wordpress_id: {eq: 26}}}}) {
                 edges {
-                    node {
-                        featured_media {
-                            localFile {
-                                childImageSharp {
-                                    sizes(maxWidth: 2000) {
-                                        ...GatsbyImageSharpSizes
-                                    }
-                                }
-                            }
-                        }
+                  node {
+                    featured_media {
+                      localFile {
+                          childImageSharp {
+                              sizes(maxWidth: 2000) {
+                                  ...GatsbyImageSharpSizes
+                              }
+                          }
+                      }
                     }
+                    acf {
+                      meta_title
+                      meta_description
+                    }
+                  }
                 }
-            }
+              }
         }
     `)
     return(
-      data.allWordpressWpHomeSection.edges.map(post => (
+      data.allWordpressWpCustomPage.edges.map(post => (
       <HomeLayout>
         <SEO 
-        title="Optomi Professional Services" 
+        title={post.node.acf.meta_title} 
+        description={post.node.acf.meta_description}
         image={post.node.featured_media.localFile.childImageSharp.sizes}
         />
         <HomeHero/>
