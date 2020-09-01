@@ -7,7 +7,13 @@ import SEO from "../components/seo"
 
 const NewsPage = ({ data }) => (
     <BlogLayout>
-      <SEO title="News"/>
+      {data.allWordpressWpCustomPage.edges.map(post => (
+      <SEO 
+      title={post.node.acf.meta_title} 
+      description={post.node.acf.meta_description}
+      image={post.node.featured_media.localFile.childImageSharp.sizes}
+      />
+      ))}
       <BlogGrid>
         {data.allWordpressWpNews.edges.map(post => (
           <article>
@@ -170,6 +176,25 @@ const NewsPage = ({ data }) => (
             }
             acf {
               custom_author
+            }
+          }
+        }
+      }
+      allWordpressWpCustomPage(filter: {categories: {elemMatch: {wordpress_id: {eq: 25}}}}) {
+        edges {
+          node {
+            featured_media {
+              localFile {
+                  childImageSharp {
+                      sizes(maxWidth: 2000) {
+                          ...GatsbyImageSharpSizes
+                      }
+                  }
+              }
+            }
+            acf {
+              meta_title
+              meta_description
             }
           }
         }

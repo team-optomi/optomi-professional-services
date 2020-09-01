@@ -7,7 +7,13 @@ import SEO from "../components/seo"
 
 const BlogPage = ({ data }) => (
     <BlogLayout>
-      <SEO title="Blog"/>
+      {data.allWordpressWpCustomPage.edges.map(post => (
+      <SEO 
+      title={post.node.acf.meta_title} 
+      description={post.node.acf.meta_description}
+      image={post.node.featured_media.localFile.childImageSharp.sizes}
+      />
+      ))}
       <BlogGrid>
         {data.allWordpressPost.edges.map(post => (
           <article>
@@ -202,6 +208,25 @@ const BlogPage = ({ data }) => (
             }
             acf {
               custom_author
+            }
+          }
+        }
+      }
+      allWordpressWpCustomPage(filter: {categories: {elemMatch: {wordpress_id: {eq: 24}}}}) {
+        edges {
+          node {
+            featured_media {
+              localFile {
+                  childImageSharp {
+                      sizes(maxWidth: 2000) {
+                          ...GatsbyImageSharpSizes
+                      }
+                  }
+              }
+            }
+            acf {
+              meta_title
+              meta_description
             }
           }
         }
