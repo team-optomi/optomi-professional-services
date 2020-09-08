@@ -44,7 +44,8 @@ return(
           <WebinarImg sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} />
       </div> 
       <MainContent>
-        <h1>Thank you for signing up for our next Town Hall. More details to follow soon.</h1>
+        <h1>Thank you for registering for our event</h1>
+        <p>We'll be in touch soon regarding our next OPS Town Hall</p>
         <Return to="/">Return to Homepage</Return>
       </MainContent>
     </BlogLayout>
@@ -68,7 +69,13 @@ const WebinarImg = styled(Img)`
       font-size: 20px;
       text-transform: uppercase;
       color: #303030;
-      margin-bottom: 100px;
+      margin-bottom: 30px;
+    }
+    p {
+      font-family: "Raleway";
+      font-size: 20px;
+      color: #303030;
+      margin-bottom: 70px;
     }
   `
 
