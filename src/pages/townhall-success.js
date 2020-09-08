@@ -34,7 +34,10 @@ return(
   data.allWordpressWpCustomPage.edges.map(post => (
 
     <BlogLayout>
-      <SEO title="Townhall Registration Success" />
+      <SEO 
+      title="Townhall Registration Success" 
+      description="Thank you for registering for our event. We'll be in touch soon regarding our next OPS Town Hall"
+      />
       <div
       data-sal="slide-up"
       data-sal-duration="1000"
