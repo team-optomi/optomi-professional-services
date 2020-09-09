@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 import BlogLayout from "../components/blog-layout"
-import TownhallForm from "../components/register-form"
+import TownhallForm from "../components/townhall-form"
 
 const TownhallPage = () => {
 
