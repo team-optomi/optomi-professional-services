@@ -8,7 +8,7 @@ class LeadershipSectionSimple extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { activeSlide: 0 };
+        this.state = { activeSlide: 0, activeCategory: 1 };
     }
 
     clickSelector(index) {
@@ -16,15 +16,30 @@ class LeadershipSectionSimple extends Component {
         this.setState({ activeSlide: num});
     }
 
+    clickCategory(cat_id) {
+        let num = cat_id;
+        this.setState({ activeCategory: num});
+        if(cat_id === 1) {
+            this.setState({ activeSlide: 0});
+        }
+        if(cat_id === 2) {
+            this.setState({ activeSlide: 7});
+        }
+    }
+
     render() {
         const { data } = this.props; 
 
         return(
-            <LeadershipFull>
-                <LeadershipMenu>
+            <LeadershipFull id={"leader_section"} >
+                <LeadershipMenu className={1 === this.state.activeCategory ? "show-executives" : "show-leadership"}>
+                        <LeadershipCategory>
+                            <button class="executives-button" onClick={() => this.clickCategory(1)}>Executives</button>
+                            <button class="leadership-button" onClick={() => this.clickCategory(2)}>Leadership</button>
+                        </LeadershipCategory>
                     {data.allWordpressWpTeamMember.edges.map((post, i) => (
-                        <LeadershipLink>
-                            <button id={"selector_" + i} class={"team-selector"} onClick={() => this.clickSelector(i)} className= {i === this.state.activeSlide ? "active" : "inactive"}  aria-label="Selector">{post.node.acf.menu_title}</button>
+                        <LeadershipLink className={post.node.acf.team_category}>
+                            <button id={"selector_" + i} onClick={() => this.clickSelector(i)} className={i === this.state.activeSlide ? "active" : "inactive"}  aria-label="Selector">{post.node.acf.menu_title}</button>
                         </LeadershipLink>
                     ))}
                 </LeadershipMenu>
@@ -63,12 +78,27 @@ const LeadershipFull = styled.div`
     z-index: 1;
 `
 
-const LeadershipMenu = styled.div`
+
+const LeadershipCategory = styled.div`
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    @media(max-width:700px) {
-        display: none;
+    background-color: #52555b;
+    button {
+        font-family: "Helvetica Thin";
+        background-color: transparent;
+        font-size: 28px;
+        text-align: center;
+        border: none;
+        outline: 0;
+        padding: 30px;
+        color: #298fc2;
+        position: relative;
+        &:hover {
+            cursor: pointer;
+            background-color: #63666b;
+        }
     }
 `
 
@@ -76,6 +106,7 @@ const LeadershipLink = styled.div`
     background-color: #52555b;
     align-self: stretch;
     flex: 1;
+    max-width: 250px;
     button {
         font-family: "Helvetica Thin";
         background-color: transparent;
@@ -122,6 +153,46 @@ const LeadershipLink = styled.div`
         background-color: #63666b;
     }
 `
+
+const LeadershipMenu = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #52555b;
+    @media(max-width:700px) {
+        display: none;
+    }
+    &.show-executives {
+        ${LeadershipCategory} {
+            button {
+                &.executives-button {
+                    text-decoration: underline;
+                }
+            }
+        }
+        ${LeadershipLink} {
+            &.leadership {
+                display: none;
+            }
+        }
+    }
+    &.show-leadership {
+        ${LeadershipCategory} {
+            button {
+                &.leadership-button {
+                    text-decoration: underline;
+                }
+            }
+        }
+        ${LeadershipLink} {
+            &.executives {
+                display: none;
+            }
+        }
+    }
+`
+
 const BackgroundImg = styled(Img)`
     height: 100vh;
     width: 100vw;
@@ -293,13 +364,51 @@ const LeadershipSlide = styled.div`
             justify-content: flex-end;
         }
     }
-    &:nth-child(5),
-    &:nth-child(7),
-    &:nth-child(11) {
+    &:nth-child(5) {
         ${BackgroundImgBW},
         ${BackgroundImg} {
             img {
                 object-position: center top !important;
+            }
+        }
+    }
+    &:nth-child(6) {
+        ${BackgroundImgBW},
+        ${BackgroundImg} {
+            img {
+                object-position: 65% 50% !important;
+            }
+        }
+    }
+    &:nth-child(7) {
+        ${BackgroundImgBW},
+        ${BackgroundImg} {
+            img {
+                object-position: 55% 50% !important;
+            }
+        }
+    }
+    &:nth-child(8) {
+        ${BackgroundImgBW},
+        ${BackgroundImg} {
+            img {
+                object-position: 100% 50% !important;
+            }
+        }
+    }
+    &:nth-child(10) {
+        ${BackgroundImgBW},
+        ${BackgroundImg} {
+            img {
+                object-position: 60% 50% !important;
+            }
+        }
+    }
+    &:nth-child(13) {
+        ${BackgroundImgBW},
+        ${BackgroundImg} {
+            img {
+                object-position: 70% 50% !important;
             }
         }
     }
@@ -345,13 +454,6 @@ const LeadershipSlide = styled.div`
                 justify-content: center !important;
             }
         }
-        &:nth-child(8) {
-            ${BackgroundImg} {
-                img {
-                    object-position: right center !important;
-                }
-            }
-        }
     }
 `
 
@@ -377,6 +479,7 @@ export default props => (
                             full_title
                             menu_title
                             linkedin_link
+                            team_category
                             gray_image {
                                 localFile {
                                     childImageSharp {
