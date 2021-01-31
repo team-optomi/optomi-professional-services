@@ -23,7 +23,7 @@ class LeadershipSection extends Component {
             this.setState({ activeSlide: 0});
         }
         if(cat_id === 2) {
-            this.setState({ activeSlide: 7});
+            this.setState({ activeSlide: 5});
         }
     }
 
@@ -339,7 +339,7 @@ const LeadershipSlide = styled.div`
         height: 100vh;
         width: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         background-color: rgba(0,0,0,.0);
         transition-duration: 1s;
         @media(max-width:1200px) {
@@ -351,16 +351,24 @@ const LeadershipSlide = styled.div`
             padding-right: 20px;
             padding-left: 20px;
             margin: 0 auto;
+            margin-bottom: 20vh;
             display: flex;
             @media(max-width:1200px) {
                 max-width: 990px;
+                margin-bottom: 10vh !important;
+            }
+            @media(max-width:1000px) {
+                margin-bottom: 20px !important;
+                justify-content: center !important;
             }
         }
         .slide-content {
             z-index: 1;
             transition-delay: 1s;
-            max-width: 500px;
             width: 100%;
+            padding: 20px;
+            max-width: 540px;
+            background-color: rgba(0,0,0,.8);
             h3 {
                 color: #fff;
                 font-weight: 100;
@@ -420,17 +428,12 @@ const LeadershipSlide = styled.div`
             opacity: 0;
         }
     }
-    &:first-child {
+    &:nth-child(2) {
         .slide-row {
             justify-content: flex-end;
         }
     }
     &:nth-child(3) {
-        .slide-row {
-            justify-content: flex-end;
-        }
-    }
-    &:nth-child(5) {
         ${BackgroundImgBW},
         ${BackgroundImg} {
             img {
@@ -438,7 +441,7 @@ const LeadershipSlide = styled.div`
             }
         }
     }
-    &:nth-child(6) {
+    &:nth-child(5) {
         ${BackgroundImgBW},
         ${BackgroundImg} {
             img {
@@ -454,15 +457,7 @@ const LeadershipSlide = styled.div`
             }
         }
     }
-    &:nth-child(8) {
-        ${BackgroundImgBW},
-        ${BackgroundImg} {
-            img {
-                object-position: 100% 50% !important;
-            }
-        }
-    }
-    &:nth-child(10) {
+    &:nth-child(9) {
         ${BackgroundImgBW},
         ${BackgroundImg} {
             img {
@@ -470,11 +465,29 @@ const LeadershipSlide = styled.div`
             }
         }
     }
-    &:nth-child(13) {
+    &:nth-child(12) {
         ${BackgroundImgBW},
         ${BackgroundImg} {
             img {
                 object-position: 70% 50% !important;
+            }
+        }
+    }
+    @media(max-width:1000px) {
+        &:nth-child(4) {
+            ${BackgroundImgBW},
+            ${BackgroundImg} {
+                img {
+                    object-position: right center !important;
+                }
+            }
+        }
+        &:nth-child(6) {
+            ${BackgroundImgBW},
+            ${BackgroundImg} {
+                img {
+                    object-position: 80% 50% !important;
+                }
             }
         }
     }
@@ -489,6 +502,14 @@ const LeadershipSlide = styled.div`
             opacity: 1;
             visibility: visible;
         }
+        &:nth-child(11) {
+            ${BackgroundImgBW},
+            ${BackgroundImg} {
+                img {
+                    object-position: 70% 50% !important;
+                }
+            }
+        }
         .slide-overlay {
             height: 50vh;
             width: 50vw;
@@ -498,6 +519,7 @@ const LeadershipSlide = styled.div`
             .slide-content {
                 transition-delay: .3s;
                 hr,
+                br,
                 a {
                     display: none;
                 }

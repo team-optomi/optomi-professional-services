@@ -41,6 +41,7 @@ module.exports = {
           "**/custom_page", // <== Custom post slug
           "**/news", // <== Custom post slug
           "**/location", // <== Custom post slug
+          "**/founder", // <== Custom post slug
           "**/media",
           "**/tags",
           "**/taxonomies",
@@ -55,7 +56,9 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `2202442890`,
+        username: `optomi_`,
+        access_token: `EAAEl0BnDfP4BAGRSL5MUlVlTbJ8rPbzA9XNtmXlvHVDF7KCvoHEh1Phcwadx6QdTVQ57giF9Twcfl63qZBXapO4YdgP7zydmb629p45VDPu6enhlLT1i3kfHEp0wZA21y4cQqqmjKeSSbmfwnEsgZCAHm1RimzpfhSlavVMrwZDZD`,
+        instagram_id: `17841402246705305`,
       },
     },
     {

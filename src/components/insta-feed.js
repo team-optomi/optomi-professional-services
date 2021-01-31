@@ -26,15 +26,6 @@ const InstaFeed = () => (
                               }
                         }
                     }
-                    thumbnails {
-                        src
-                        config_width
-                        config_height
-                    }
-                    dimensions {
-                        height
-                        width
-                    }
                 }
             }
             }

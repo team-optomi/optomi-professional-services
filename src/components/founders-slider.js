@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from "gatsby-image"
 import { FaLinkedin } from 'react-icons/fa'
 
-class LeadershipSectionSimple extends Component {
+class FoundersSlider extends Component {
 
     constructor(props) {
         super(props);
@@ -16,35 +16,36 @@ class LeadershipSectionSimple extends Component {
         this.setState({ activeSlide: num});
     }
 
-    clickCategory(cat_id) {
-        let num = cat_id;
-        this.setState({ activeCategory: num});
-        if(cat_id === 1) {
-            this.setState({ activeSlide: 0});
-        }
-        if(cat_id === 2) {
-            this.setState({ activeSlide: 5});
-        }
-    }
-
     render() {
         const { data } = this.props; 
 
         return(
             <LeadershipFull id={"leader_section"} >
-                <LeadershipMenu className={1 === this.state.activeCategory ? "show-executives" : "show-leadership"}>
-                        <LeadershipCategory>
-                            <button class="executives-button" onClick={() => this.clickCategory(1)}>Executives</button>
-                            <button class="leadership-button" onClick={() => this.clickCategory(2)}>Leadership</button>
-                        </LeadershipCategory>
-                    {data.allWordpressWpTeamMember.edges.map((post, i) => (
+                <LeadershipTop>
+                    <div 
+                        className={"flex-box"}
+                        data-sal="slide-right"
+                        data-sal-duration="1000"
+                        data-sal-delay="300"
+                        data-sal-easing="ease"
+                    >
+                        <div className={"left-col"}>
+                            <h2>Founders</h2>
+                        </div>
+                        <div className={"right-col"}>
+                            <p>We are a team of innovative thinkers, industry disruptors and refreshingly enterprising strategists influencing a more purpose-driven world.</p>
+                        </div>
+                    </div>
+                </LeadershipTop>
+                <LeadershipMenu>
+                    {data.allWordpressWpFounder.edges.map((post, i) => (
                         <LeadershipLink className={post.node.acf.team_category}>
                             <button id={"selector_" + i} onClick={() => this.clickSelector(i)} className={i === this.state.activeSlide ? "active" : "inactive"}  aria-label="Selector">{post.node.acf.menu_title}</button>
                         </LeadershipLink>
                     ))}
                 </LeadershipMenu>
                 <LeadershipSlider>
-                    {data.allWordpressWpTeamMember.edges.map((post, i) => (
+                    {data.allWordpressWpFounder.edges.map((post, i) => (
                         <LeadershipSlide id={"slide_" + i} className= {i === this.state.activeSlide ? "active" : "inactive"}>
                             <BackgroundImg sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} />
                             <BackgroundImgBW sizes={post.node.acf.gray_image.localFile.childImageSharp.sizes} alt={post.node.title} />
@@ -76,6 +77,57 @@ class LeadershipSectionSimple extends Component {
 const LeadershipFull = styled.div`
     position: relative;
     z-index: 1;
+`
+
+const LeadershipTop = styled.div`
+    background-color: #8b8f91;
+    .flex-box {
+        max-width: 1140px;
+        width: 100%;
+        padding: 60px 20px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        .left-col {
+            margin-right: 30px;
+            h2 {
+                font-family: "Helvetica Thin";
+                color: #fff;
+                font-weight: normal;
+                font-size: 55px;
+                line-height: 55px;
+                text-transform: capitalize;
+                font-weight: 100;
+                margin-bottom: 0;
+                @media(max-width:1200px) {
+                    font-size: 45px;
+                    line-height: 1;
+                }
+            }
+        }
+        .right-col {
+            p {
+                font-family: "Helvetica Thin";
+                color: #fff;
+                font-size: 25px;
+                line-height: 25px;
+                margin-bottom: 0;
+                @media(max-width:1200px) {
+                    font-size: 22px;
+                    line-height: 1.2;
+                }
+            }
+        }
+        @media(max-width:1200px) {
+            max-width: 990px;
+        }
+        @media(max-width:950px) {
+            display: block;
+            .left-col {
+                margin-right: 0;
+            }
+        }
+    }
 `
 
 
@@ -362,67 +414,9 @@ const LeadershipSlide = styled.div`
             opacity: 0;
         }
     }
-    &:nth-child(2) {
+    &:nth-child(1) {
         .slide-row {
             justify-content: flex-end;
-        }
-    }
-    &:nth-child(3) {
-        ${BackgroundImgBW},
-        ${BackgroundImg} {
-            img {
-                object-position: center top !important;
-            }
-        }
-    }
-    &:nth-child(5) {
-        ${BackgroundImgBW},
-        ${BackgroundImg} {
-            img {
-                object-position: 65% 50% !important;
-            }
-        }
-    }
-    &:nth-child(7) {
-        ${BackgroundImgBW},
-        ${BackgroundImg} {
-            img {
-                object-position: 55% 50% !important;
-            }
-        }
-    }
-    &:nth-child(9) {
-        ${BackgroundImgBW},
-        ${BackgroundImg} {
-            img {
-                object-position: 60% 50% !important;
-            }
-        }
-    }
-    &:nth-child(12) {
-        ${BackgroundImgBW},
-        ${BackgroundImg} {
-            img {
-                object-position: 70% 50% !important;
-            }
-        }
-    }
-    @media(max-width:1000px) {
-        &:nth-child(4) {
-            ${BackgroundImgBW},
-            ${BackgroundImg} {
-                img {
-                    object-position: right center !important;
-                }
-            }
-        }
-        &:nth-child(6) {
-            ${BackgroundImgBW},
-            ${BackgroundImg} {
-                img {
-                    object-position: 80% 50% !important;
-                }
-            }
         }
     }
     @media(max-width:700px) {
@@ -435,14 +429,6 @@ const LeadershipSlide = styled.div`
         &.inactive {
             opacity: 1;
             visibility: visible;
-        }
-        &:nth-child(11) {
-            ${BackgroundImgBW},
-            ${BackgroundImg} {
-                img {
-                    object-position: 70% 50% !important;
-                }
-            }
         }
         .slide-overlay {
             height: 50vh;
@@ -483,7 +469,7 @@ export default props => (
     <StaticQuery
       query={graphql`
         query {
-            allWordpressWpTeamMember(sort: {fields: date, order: DESC}) {
+            allWordpressWpFounder(sort: {fields: date, order: DESC}) {
                 edges {
                     node {
                         title
@@ -517,6 +503,6 @@ export default props => (
             }
         }
       `}
-      render={data => <LeadershipSectionSimple data={data} {...props} />}
+      render={data => <FoundersSlider data={data} {...props} />}
     />
   );
