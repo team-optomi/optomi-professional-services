@@ -140,7 +140,7 @@ const HeroBanner = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    z-index: 1;
+    z-index: 99;
 `
 const BackgroundImg = styled(Img)`
     height: 100vh;

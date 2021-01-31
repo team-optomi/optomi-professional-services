@@ -49,7 +49,7 @@ const BottomSection = styled.div`
     background-color: #000;
     padding-bottom: 70px;
     position: relative;
-    z-index: 1;
+    z-index: 99;
     .bottom-row {
         max-width: 1140px;
         width: 100%;

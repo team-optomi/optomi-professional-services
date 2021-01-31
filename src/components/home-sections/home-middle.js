@@ -66,6 +66,7 @@ const MiddleSection = styled.div`
     height: 100%;
     width: 100%;
     background-color: #000;
+    z-index: 98;
 `
 
 const BackgroundImg = styled(Img)`

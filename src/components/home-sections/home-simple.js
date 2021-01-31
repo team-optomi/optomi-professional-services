@@ -40,7 +40,7 @@ const MiddleSection = styled.div`
     padding-bottom: 0px;
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: 99;
 `
 
 const MiddleContent = styled.div`

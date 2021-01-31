@@ -1,9 +1,34 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from "gatsby-image"
 
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 const HomeParallax = () => {
+
+    useEffect(() => {
+    
+        if (typeof window !== `undefined`) {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.core.globals('ScrollTrigger', ScrollTrigger)
+        }
+
+        let tl = gsap.timeline({
+            paused: true,
+            scrollTrigger: {
+                trigger: "#parallax_trigger",
+                scrub: 0.5,
+                start: 'top bottom',
+                end: 'top 30%',
+                id: 'parallax_bg',
+                toggleActions: 'play reset play reset',
+                },
+            })
+            tl.to('.bg-parallax', { opacity: '1' })
+    
+      }, []);
 
     const data = useStaticQuery(graphql`
         query {
@@ -29,12 +54,12 @@ const HomeParallax = () => {
     return(
         
         data.allWordpressWpHomeSection.edges.map(post => (
-            <ParallaxSection>
+            <ParallaxSection id="parallax_trigger">
                 <div class={"parallax-top"}>
                     <hr/>
                 </div>
 
-                <ImageBackground>
+                <ImageBackground className={"bg-parallax"}>
                     <BackgroundImg sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} />
                 </ImageBackground>
 
@@ -69,14 +94,14 @@ const ParallaxSection = styled.div`
         width: 100%;
         top: 0;
         left: 0;
-        z-index: 1;
+        z-index: 10;
         hr {
             width: 80%;
             margin: 0 auto;
             margin-top: 79px;
             height: 1px;
             background-color: #888;
-            z-index: 1;
+            z-index: 10;
         }
     }
     .parallax-content {
@@ -85,7 +110,7 @@ const ParallaxSection = styled.div`
         padding-left: 20px;
         padding-right: 20px;
         margin: 0 auto;
-        z-index: 1;
+        z-index: 10;
     }
     .parallax-bottom {
         background-color: #000;
@@ -94,7 +119,7 @@ const ParallaxSection = styled.div`
         width: 100%;
         bottom: 0;
         left: 0;
-        z-index: 1;
+        z-index: 10;
         hr {
             width: 80%;
             margin: 0 auto;
@@ -132,11 +157,12 @@ const ImageBackground = styled.div`
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: 1;
+    opacity: 0;
 `
 
 const ParallaxContent = styled.div`
-    z-index: 1;
+    z-index: 2;
     max-width: 550px;
     margin-left: 115px;
     h2 {

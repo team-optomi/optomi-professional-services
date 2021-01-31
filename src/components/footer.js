@@ -58,7 +58,7 @@ const FooterMain = styled.div`
     background-color: #262626;
     padding-top: 50px;
     position: relative;
-    z-index: 1;
+    z-index: 99;
 `
 
 const FooterRow = styled.div`

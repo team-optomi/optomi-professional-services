@@ -168,7 +168,7 @@ const ThreeColSection = styled.div`
     padding-top: 60px;
     padding-bottom: 80px;
     position: relative;
-    z-index: 1;
+    z-index: 99;
     border-top: 1px solid #8c9192;
 `
 

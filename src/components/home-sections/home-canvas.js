@@ -52,7 +52,7 @@ const CanvasSection = styled.div`
     padding-bottom: 80px;
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: 99;
 `
 
 const CanvasContent = styled.div`
