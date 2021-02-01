@@ -23,7 +23,7 @@ class LeadershipSectionSimple extends Component {
             this.setState({ activeSlide: 0});
         }
         if(cat_id === 2) {
-            this.setState({ activeSlide: 5});
+            this.setState({ activeSlide: 3});
         }
     }
 
@@ -302,7 +302,6 @@ const LeadershipSlide = styled.div`
             width: 100%;
             padding: 20px;
             max-width: 540px;
-            background-color: rgba(0,0,0,.8);
             h3 {
                 color: #fff;
                 font-weight: 100;
@@ -313,7 +312,7 @@ const LeadershipSlide = styled.div`
                 font-family: "Helvetica Thin";
                 color: #fff;
                 font-size: 18px;
-                line-height: 22px;/MemberCopy>
+                line-height: 22px;
                 margin-bottom: 0;
             }
             hr {
@@ -346,7 +345,7 @@ const LeadershipSlide = styled.div`
         opacity: 1;
         visibility: visible;
         .slide-overlay { 
-            background-color: rgba(0,0,0,.5);
+            background-color: rgba(0,0,0,.6);
         }
         ${BackgroundImgBW} {
             opacity: 1;

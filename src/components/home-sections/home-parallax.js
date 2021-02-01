@@ -26,7 +26,7 @@ const HomeParallax = () => {
                 toggleActions: 'play reset play reset',
                 },
             })
-            tl.to('.bg-parallax', { opacity: '1' })
+            tl.to('.bg-parallax', { opacity: '1', visibility: 'visible' })
     
       }, []);
 
@@ -158,6 +158,7 @@ const ImageBackground = styled.div`
     top: 0;
     left: 0;
     z-index: 1;
+    visibility: hidden;
     opacity: 0;
 `
 
