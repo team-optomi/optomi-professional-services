@@ -471,6 +471,7 @@ const LeadershipSlide = styled.div`
             height: 70vh;
             width: 100vw;
             top: 70vh;
+            align-items: center;
             .slide-row {
                 justify-content: center !important;
             }
