@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import OptomiLogo from "../components/logos/optomi-logo"
 import ProLogo from "../components/logos/provalus-logo"
-import SanLogo from "../components/logos/santeka-logo"
+// import SanLogo from "../components/logos/santeka-logo"
 
 const FixedLogos = () => (
   <LogoCol>
@@ -15,10 +15,10 @@ const FixedLogos = () => (
       <a href="https://provalus.com/" target="_blank" rel="noopener noreferrer" aria-label="Link"><ProLogo/></a>
     </Pro>
     <Divider style={{ marginTop: '8px', marginBottom: '0px' }}/>
-    <San>
+    {/* <San>
       <a href="http://www.santeka.com/" target="_blank" rel="noopener noreferrer" aria-label="Link"><SanLogo/></a>
     </San>
-    <Divider/>
+    <Divider/> */}
   </LogoCol>
 )
 
@@ -61,19 +61,19 @@ const Pro = styled.div`
     }
   }
 `
-const San = styled.div`
-  padding: 0;
-  width: 90px;
-  margin-left: 5px;
-  .gatsby-image-wrapper {
-    width: 70px;
-    height: 63px;
-    margin: 0 auto;
-    img {
-      margin-bottom: 0;
-    }
-  }
-`
+// const San = styled.div`
+//   padding: 0;
+//   width: 90px;
+//   margin-left: 5px;
+//   .gatsby-image-wrapper {
+//     width: 70px;
+//     height: 63px;
+//     margin: 0 auto;
+//     img {
+//       margin-bottom: 0;
+//     }
+//   }
+// `
 
 const Divider = styled.hr`
   background-color: #aaa;

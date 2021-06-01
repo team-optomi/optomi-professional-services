@@ -8,7 +8,7 @@ import HomeCanvas from "../components/home-sections/home-canvas"
 import HomeSimple from "../components/home-sections/home-simple"
 import HomeMiddle from "../components/home-sections/home-middle"
 import HomeThreeCol from "../components/home-sections/home-three-col"
-import LeadershipSection from "../components/leadership-section"
+// import LeadershipSection from "../components/leadership-section"
 import HomeParallax from "../components/home-sections/home-parallax"
 import HomeBottom from "../components/home-sections/home-bottom"
 
@@ -50,7 +50,7 @@ const IndexPage = () => {
         <HomeSimple/>
         <HomeMiddle/>
         <HomeThreeCol/>
-        <LeadershipSection/>
+        {/* <LeadershipSection/> */}
         <HomeParallax/>
         <HomeBottom/>
       </HomeLayout>

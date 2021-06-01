@@ -1,58 +1,84 @@
 import React from "react"
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from "styled-components"
 
 import FooterLogo from "../components/logos/footer-logo"
-import InstaFeed from "../components/insta-feed"
+// import InstaFeed from "../components/insta-feed"
 import { FaTwitter } from 'react-icons/fa'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
 
-const Footer = () => (
-    <FooterMain>
-      <FooterRow>
-        <FooterCol>
-            <FooterLogo/>
-            <h4>Headquarters</h4>
-            <p>One Glenlake Parkway<br/>
-                Suite 1250<br/>
-                Atlanta, Ga 30328<br/>
-                www.optomi.com<br/>
-                678-250-0820</p>
-            <div class={"socials"}>
-                <a href="https://twitter.com/OptomiServices" target="_blank" rel="noopener noreferrer" aria-label="Link"><FaTwitter/></a>
-                <a href="https://www.linkedin.com/company/27003541/" target="_blank" rel="noopener noreferrer" aria-label="Link"><FaLinkedinIn/></a>
-                <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer" aria-label="Link"><FaInstagram/></a>
-            </div>
-        </FooterCol>
-        <FooterCol>
-            <h4>News</h4>
-            <ul>
-                <li><a href="https://optomi.com/press/" target="_blank" rel="noopener noreferrer">Optomi press</a></li>
-                <li><a href="http://www.linkedin.com/company/optomi?trk=tabs_biz_home" target="_blank" rel="noopener noreferrer">Optomi on LinkedIn</a></li>
-                <li><a href="https://www.linkedin.com/company-beta/16182234/" target="_blank" rel="noopener noreferrer">Provalus on LinkedIn</a></li>
-                <li><a href="https://www.linkedin.com/company/santekahealthcaretalent" target="_blank" rel="noopener noreferrer">Santeka on LinkedIn</a></li>
-                <li><a href="https://optomi.com/press/awards/" target="_blank" rel="noopener noreferrer">Optomi awards and recognitions</a></li>
-            </ul>
-        </FooterCol>
-        <FooterCol>
-            <h4>Connect with Us</h4>
-            <ul>
-                <li><a href="https://optomi.com/" target="_blank" rel="noopener noreferrer">Optomi website</a></li>
-                <li><a href="https://www.optomi.com/services" target="_blank" rel="noopener noreferrer">Optomi services</a></li>
-                <li><a href="https://www.provalus.com/" target="_blank" rel="noopener noreferrer">Provalus website</a></li>
-                <li><a href="http://www.santeka.com/" target="_blank" rel="noopener noreferrer">Santeka</a></li>
-            </ul>
-        </FooterCol>
-        <FooterCol>
-            <h4>Experience OPS</h4>
-            <InstaFeed/>
-        </FooterCol>
-      </FooterRow>
-        <FooterBottom>
-            <p>© <a href="https://optomiservices.com/" target="_blank" rel="noopener noreferrer">OPTOMI PROFESSIONAL SERVICES.</a> | All rights reserved.</p>
-        </FooterBottom>
-    </FooterMain>
-)
+const Footer = () => {
+
+    const data = useStaticQuery(graphql`
+        query {
+            footerSectionOne: allWordpressWpFooterSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 32}}}}) {
+                edges {
+                    node {
+                        content
+                        acf {
+                            footer_twitter_link
+                            footer_linkedin_link
+                            footer_instagram_link
+                        }
+                    }
+                }
+            }
+            footerSectionTwo: allWordpressWpFooterSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 31}}}}) {
+                edges {
+                    node {
+                        content
+                    }
+                }
+            }
+            footerSectionThree: allWordpressWpFooterSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 30}}}}) {
+                edges {
+                    node {
+                        content
+                    }
+                }
+            }
+            footerCopyright: allWordpressWpFooterSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 29}}}}) {
+                edges {
+                    node {
+                        content
+                    }
+                }
+            }
+        }
+    `)
+    return(
+        <FooterMain>
+            <FooterRow>
+                {data.footerSectionOne.edges.map(sectionOne => (
+                <FooterCol>
+                    <FooterLogo/>
+                    <div dangerouslySetInnerHTML={{ __html: sectionOne.node.content }} />
+                    <div class={"socials"}>
+                        <a href={ sectionOne.node.acf.footer_twitter_link } target="_blank" rel="noopener noreferrer" aria-label="Link"><FaTwitter/></a>
+                        <a href={ sectionOne.node.acf.footer_linkedin_link } target="_blank" rel="noopener noreferrer" aria-label="Link"><FaLinkedinIn/></a>
+                        <a href={ sectionOne.node.acf.footer_instagram_link } target="_blank" rel="noopener noreferrer" aria-label="Link"><FaInstagram/></a>
+                    </div>
+                </FooterCol>
+                ))}
+                {data.footerSectionTwo.edges.map(sectionTwo => (
+                <FooterCol dangerouslySetInnerHTML={{ __html: sectionTwo.node.content }}/>
+                ))}
+                {data.footerSectionThree.edges.map(sectionThree => (
+                <FooterCol dangerouslySetInnerHTML={{ __html: sectionThree.node.content }}/>
+                ))}
+                <FooterCol>
+                    <h4>Experience OPS</h4>
+                    {/* <InstaFeed/> */}
+                </FooterCol>
+            </FooterRow>
+            {data.footerCopyright.edges.map(copyright => (
+                <FooterBottom dangerouslySetInnerHTML={{ __html: copyright.node.content }} />
+            ))}
+        </FooterMain>
+    )
+    
+}
 
 const FooterMain = styled.div`
     background-color: #262626;

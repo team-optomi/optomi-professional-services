@@ -42,6 +42,7 @@ module.exports = {
           "**/news", // <== Custom post slug
           "**/location", // <== Custom post slug
           "**/founder", // <== Custom post slug
+          "**/footer_section", // <== Custom post slug
           "**/media",
           "**/tags",
           "**/taxonomies",
@@ -53,6 +54,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: `EAAEl0BnDfP4BAGRSL5MUlVlTbJ8rPbzA9XNtmXlvHVDF7KCvoHEh1Phcwadx6QdTVQ57giF9Twcfl63qZBXapO4YdgP7zydmb629p45VDPu6enhlLT1i3kfHEp0wZA21y4cQqqmjKeSSbmfwnEsgZCAHm1RimzpfhSlavVMrwZDZD`
+      }
+    },
     {
       resolve: `gatsby-source-instagram`,
       options: {
