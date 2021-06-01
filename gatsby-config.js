@@ -55,20 +55,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token: `EAAEl0BnDfP4BAGRSL5MUlVlTbJ8rPbzA9XNtmXlvHVDF7KCvoHEh1Phcwadx6QdTVQ57giF9Twcfl63qZBXapO4YdgP7zydmb629p45VDPu6enhlLT1i3kfHEp0wZA21y4cQqqmjKeSSbmfwnEsgZCAHm1RimzpfhSlavVMrwZDZD`
-      }
-    },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `optomi_`,
-        access_token: `EAAEl0BnDfP4BAGRSL5MUlVlTbJ8rPbzA9XNtmXlvHVDF7KCvoHEh1Phcwadx6QdTVQ57giF9Twcfl63qZBXapO4YdgP7zydmb629p45VDPu6enhlLT1i3kfHEp0wZA21y4cQqqmjKeSSbmfwnEsgZCAHm1RimzpfhSlavVMrwZDZD`,
-        instagram_id: `17841402246705305`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID

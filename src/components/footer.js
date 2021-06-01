@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from "styled-components"
+import Image from 'gatsby-image';
 
 import FooterLogo from "../components/logos/footer-logo"
 // import InstaFeed from "../components/insta-feed"
@@ -12,6 +13,69 @@ const Footer = () => {
 
     const data = useStaticQuery(graphql`
         query {
+            footerInstaImages: allWordpressWpFooterSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 33}}}}) {
+                edges {
+                    node {
+                        content
+                        acf {
+                            image_one {
+                                localFile {
+                                    childImageSharp {
+                                        sizes(maxWidth: 300) {
+                                            ...GatsbyImageSharpSizes
+                                        }
+                                    }
+                                }
+                            }
+                            image_two {
+                                localFile {
+                                    childImageSharp {
+                                        sizes(maxWidth: 300) {
+                                            ...GatsbyImageSharpSizes
+                                        }
+                                    }
+                                }
+                            }
+                            image_three {
+                                localFile {
+                                    childImageSharp {
+                                        sizes(maxWidth: 300) {
+                                            ...GatsbyImageSharpSizes
+                                        }
+                                    }
+                                }
+                            }
+                            image_four {
+                                localFile {
+                                    childImageSharp {
+                                        sizes(maxWidth: 300) {
+                                            ...GatsbyImageSharpSizes
+                                        }
+                                    }
+                                }
+                            }
+                            image_five {
+                                localFile {
+                                    childImageSharp {
+                                        sizes(maxWidth: 300) {
+                                            ...GatsbyImageSharpSizes
+                                        }
+                                    }
+                                }
+                            }
+                            image_six {
+                                localFile {
+                                    childImageSharp {
+                                        sizes(maxWidth: 300) {
+                                            ...GatsbyImageSharpSizes
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             footerSectionOne: allWordpressWpFooterSection(filter: {categories: {elemMatch: {wordpress_id: {eq: 32}}}}) {
                 edges {
                     node {
@@ -67,10 +131,43 @@ const Footer = () => {
                 {data.footerSectionThree.edges.map(sectionThree => (
                 <FooterCol dangerouslySetInnerHTML={{ __html: sectionThree.node.content }}/>
                 ))}
+                {data.footerInstaImages.edges.map(instaImage => (
                 <FooterCol>
-                    <h4>Experience OPS</h4>
-                    {/* <InstaFeed/> */}
+                    <div dangerouslySetInnerHTML={{ __html: instaImage.node.content }}/>
+                    <InstaFlex>
+                        <InstaImage>
+                            <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer">
+                            <Image sizes={instaImage.node.acf.image_one.localFile.childImageSharp.sizes}/>
+                            </a>
+                        </InstaImage>
+                        <InstaImage>
+                            <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer">
+                            <Image sizes={instaImage.node.acf.image_two.localFile.childImageSharp.sizes}/>
+                            </a>
+                        </InstaImage>
+                        <InstaImage>
+                            <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer">
+                            <Image sizes={instaImage.node.acf.image_three.localFile.childImageSharp.sizes}/>
+                            </a>
+                        </InstaImage>
+                        <InstaImage>
+                            <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer">
+                            <Image sizes={instaImage.node.acf.image_four.localFile.childImageSharp.sizes}/>
+                            </a>
+                        </InstaImage>
+                        <InstaImage>
+                            <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer">
+                            <Image sizes={instaImage.node.acf.image_five.localFile.childImageSharp.sizes}/>
+                            </a>
+                        </InstaImage>
+                        <InstaImage>
+                            <a href="https://www.instagram.com/optomi_/" target="_blank" rel="noopener noreferrer">
+                            <Image sizes={instaImage.node.acf.image_six.localFile.childImageSharp.sizes}/>
+                            </a>
+                        </InstaImage>
+                    </InstaFlex>
                 </FooterCol>
+                ))}
             </FooterRow>
             {data.footerCopyright.edges.map(copyright => (
                 <FooterBottom dangerouslySetInnerHTML={{ __html: copyright.node.content }} />
@@ -176,6 +273,56 @@ const FooterBottom = styled.div`
             color: #5ab3e8;
             font-weight: 600;
             text-decoration: none !important;
+        }
+    }
+`
+
+const InstaFlex = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    @media(max-width:700px) {
+        max-width: 350px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+`
+
+const InstaImage = styled.div`
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    @media(max-width:1200px) {
+        width: 105px;
+        height: 105px;
+    }
+    @media(max-width:980px) {
+        width: 50px;
+        height: 50px;
+    }
+    @media(max-width:700px) {
+        width: 105px;
+        height: 105px;
+    }
+    .gatsby-image-wrapper {
+        width: 75px !important;
+        height: 75px !important;
+        overflow: hidden;
+        @media(max-width:1200px) {
+            width: 105px !important;
+            height: 105px !important;
+        }
+        @media(max-width:980px) {
+            width: 50px !important;
+            height: 50px !important;
+        }
+        @media(max-width:700px) {
+            width: 105px !important;
+            height: 105px !important;
+        }
+        img {
+            object-fit: cover;
+            margin-bottom: 0; 
         }
     }
 `
