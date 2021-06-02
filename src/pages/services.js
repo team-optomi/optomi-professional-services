@@ -170,7 +170,7 @@ const ServicesPage = () => {
                                 <button onClick={() => scrollTo('#section_two')} aria-label="Development Button">Development</button>
                                 <button onClick={() => scrollTo('#section_three')} aria-label="Functional Roles Button">Functional Roles</button>
                                 <button onClick={() => scrollTo('#section_four')} aria-label="Infastructure Button">Infastructure</button>
-                                <button onClick={() => scrollTo('#section_five')} aria-label="Healthcare IT Button">Healthcare IT</button>
+                                {/* <button onClick={() => scrollTo('#section_five')} aria-label="Healthcare IT Button">Healthcare IT</button> */}
                         </SectionLinks>
                     </div>
                     <HeroBottom
@@ -271,7 +271,7 @@ const ServicesPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div class={"main-section"} id={"section_five"}>
+                    {/* <div class={"main-section"} id={"section_five"}>
                         <div class={"main-section-row"}>
                             <div class={"col-one"}
                             data-sal="slide-right"
@@ -293,7 +293,7 @@ const ServicesPage = () => {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </MainSections>
                 <SectionSix id={"section_six"}>
                     <SectionSixRow
@@ -317,14 +317,14 @@ const ServicesPage = () => {
                                 <Img sizes={post.node.acf.section_six.image_two.localFile.childImageSharp.sizes} alt={"Services Image"}/>
                                 </a>
                             </div>
-                            <div class={"plus-col"}>
+                            {/* <div class={"plus-col"}>
                                 <PlusSign/>
                             </div>
                             <div class={"link-col"}>
                                 <a href={post.node.acf.section_six.link_three}>
                                 <Img sizes={post.node.acf.section_six.image_three.localFile.childImageSharp.sizes} alt={"Services Image"}/>
                                 </a>
-                            </div>
+                            </div> */}
                         </div>
                         <SectionSixSub><p>{post.node.acf.section_six.section_sub}</p></SectionSixSub>
                     </SectionSixRow>
@@ -678,6 +678,8 @@ const SectionSixRow = styled.div`
     width: 100%;
     text-align: center;
     .section-links {
+        max-width: 600px;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;

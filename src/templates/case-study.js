@@ -88,6 +88,7 @@ const MainSection = styled.section`
   .section-one {
     background-color: rgb(82, 85, 91);
     padding: 100px 20px;
+    position: relative;
     .flex-row {
       max-width: 1200px;
       width: 100%;
@@ -114,9 +115,16 @@ const MainSection = styled.section`
       }
       .services {
         width: 30%;
+        position: absolute;
+        right: 0;
+        top: -100px;
+        z-index: 2;
+        background-color: #61b1e8;
+        padding: 35px;
+        box-shadow: -5px 5px 10px rgba(0,0,0,.3);
         h2 {
             font-family: "Helvetica Thin";
-            color: rgb(97, 177, 232);
+            color: #000;
             font-size: 35px;
             line-height: 35px;
             letter-spacing: 2px;
@@ -240,10 +248,15 @@ const MainSection = styled.section`
     .section-one {
       .flex-row {
         flex-wrap: wrap;
-        .overview,
-        .services {
+        .overview {
           width: 100%;
           padding-right: 0;
+        }
+        .services {
+          position: relative;
+          width: 100%;
+          top: auto;
+          right: auto;
         }
       }
     }
