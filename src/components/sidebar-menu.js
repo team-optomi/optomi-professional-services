@@ -82,6 +82,13 @@ class SideMainMenu extends Component {
                 </MenuItem>
                 <MenuItem>
                     <Link
+                    to="/case-studies/"
+                    >
+                    Case Studies
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link
                     to="/news/"
                     >
                     News

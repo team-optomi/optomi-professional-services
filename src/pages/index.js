@@ -7,6 +7,7 @@ import HomeHero from "../components/home-sections/home-hero"
 import HomeCanvas from "../components/home-sections/home-canvas"
 import HomeSimple from "../components/home-sections/home-simple"
 import HomeMiddle from "../components/home-sections/home-middle"
+import HomeCaseStudies from "../components/home-sections/home-case-studies"
 // import HomeThreeCol from "../components/home-sections/home-three-col"
 // import LeadershipSection from "../components/leadership-section"
 import HomeParallax from "../components/home-sections/home-parallax"
@@ -49,6 +50,7 @@ const IndexPage = () => {
         <HomeCanvas/>
         <HomeSimple/>
         <HomeMiddle/>
+        <HomeCaseStudies/>
         {/* <HomeThreeCol/> */}
         {/* <LeadershipSection/> */}
         <HomeParallax/>
