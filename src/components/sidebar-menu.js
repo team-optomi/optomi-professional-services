@@ -25,32 +25,25 @@ class SideMainMenu extends Component {
                     <Link
                     to="/clients/"
                     >
-                    Clients
+                    For Clients
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link
+                    to="/case-studies/"
+                    >
+                    Case Studies
                     </Link>
                 </MenuItem>
                 <MenuItem>
                     <Link
                     to="/candidates/"
                     >
-                    Candidates
+                    For Candidates
                     </Link>
                 </MenuItem>
                 <MenuItem>
                     <a href="http://www.optomiserves.com/">Impact</a>
-                </MenuItem>
-                <MenuItem>
-                    <Link
-                    to="/blog/"
-                    >
-                    Blog
-                    </Link>
-                </MenuItem>
-                <MenuItem>
-                    <Link
-                    to="/contact/"
-                    >
-                    Contact
-                    </Link>
                 </MenuItem>
                 <MenuItem>
                     <Link
@@ -64,6 +57,20 @@ class SideMainMenu extends Component {
                     to="/awards/"
                     >
                     Awards
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link
+                    to="/blog/"
+                    >
+                    Insights
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link
+                    to="/news/"
+                    >
+                    Newsroom
                     </Link>
                 </MenuItem>
                 <MenuItem>
@@ -82,16 +89,9 @@ class SideMainMenu extends Component {
                 </MenuItem>
                 <MenuItem>
                     <Link
-                    to="/case-studies/"
+                    to="/contact/"
                     >
-                    Case Studies
-                    </Link>
-                </MenuItem>
-                <MenuItem>
-                    <Link
-                    to="/news/"
-                    >
-                    News
+                    Contact
                     </Link>
                 </MenuItem>
                 <MenuItem>
@@ -102,10 +102,10 @@ class SideMainMenu extends Component {
                     </Link>
                 </MenuItem>
                 <MenuItem>
-                    <a href="http://optomi.com/" target="_blank" rel="noopener noreferrer">Optomi</a>
+                    <a href="http://optomi.com/" target="_blank" rel="noopener noreferrer">Optomi Brand</a>
                 </MenuItem>
                 <MenuItem>
-                    <a href="https://provalus.com/" target="_blank" rel="noopener noreferrer">Provalus</a>
+                    <a href="https://provalus.com/" target="_blank" rel="noopener noreferrer">Provalus Brand</a>
                 </MenuItem>
             </MainMenu>
         );
