@@ -33,6 +33,7 @@ const ServicesPage = () => {
                         acf {
                             section_one {
                                 section_one_image {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 2000) {
@@ -45,6 +46,7 @@ const ServicesPage = () => {
                             section_two {
                                 section_two_copy
                                 section_two_image {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 650) {
@@ -57,6 +59,7 @@ const ServicesPage = () => {
                             section_three {
                                 section_three_copy
                                 image {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 420) {
@@ -69,6 +72,7 @@ const ServicesPage = () => {
                             section_four {
                                 section_four_copy
                                 image {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 650) {
@@ -93,6 +97,7 @@ const ServicesPage = () => {
                             section_six {
                                 section_six_content
                                 image_one {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 500) {
@@ -103,6 +108,7 @@ const ServicesPage = () => {
                                 }
                                 link_one
                                 image_two {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 450) {
@@ -112,8 +118,8 @@ const ServicesPage = () => {
                                     }
                                 }
                                 link_two
-                                image_three
-                                 {
+                                image_three {
+                                    title
                                     localFile {
                                         childImageSharp {
                                             sizes(maxWidth: 420) {
@@ -198,7 +204,7 @@ const ServicesPage = () => {
                     data-sal-delay="300"
                     data-sal-easing="ease"
                     >
-                        <SectionOneImage sizes={post.node.acf.section_one.section_one_image.localFile.childImageSharp.sizes} alt={"Services Image"}/>
+                        <SectionOneImage sizes={post.node.acf.section_one.section_one_image.localFile.childImageSharp.sizes} alt={post.node.acf.section_one.section_one_image.title}/>
                     </SectionOneRow>
                 </SectionOne>
                 <MainSections>
@@ -221,7 +227,7 @@ const ServicesPage = () => {
                             data-sal-delay="300"
                             data-sal-easing="ease"
                             >
-                                <Img sizes={post.node.acf.section_two.section_two_image.localFile.childImageSharp.sizes} alt={"Services Image"}/>
+                                <Img sizes={post.node.acf.section_two.section_two_image.localFile.childImageSharp.sizes} alt={post.node.acf.section_two.section_two_image.title}/>
                             </div>
                         </div>
                     </div>
@@ -233,7 +239,7 @@ const ServicesPage = () => {
                             data-sal-delay="300"
                             data-sal-easing="ease"
                             >
-                                <Img sizes={post.node.acf.section_three.image.localFile.childImageSharp.sizes} alt={"Services Image"}/>
+                                <Img sizes={post.node.acf.section_three.image.localFile.childImageSharp.sizes} alt={post.node.acf.section_three.image.title}/>
                             </div>
                             <div class={"col-two"}
                             data-sal="fade"
@@ -267,7 +273,7 @@ const ServicesPage = () => {
                             data-sal-delay="300"
                             data-sal-easing="ease"
                             >
-                                <Img sizes={post.node.acf.section_four.image.localFile.childImageSharp.sizes} alt={"Services Image"}/>
+                                <Img sizes={post.node.acf.section_four.image.localFile.childImageSharp.sizes} alt={post.node.acf.section_four.image.title}/>
                             </div>
                         </div>
                     </div>
@@ -306,7 +312,7 @@ const ServicesPage = () => {
                         <div class={"section-links"}>
                             <div class={"link-col"}>
                                 <a href={post.node.acf.section_six.link_one}>
-                                <Img sizes={post.node.acf.section_six.image_one.localFile.childImageSharp.sizes} alt={"Services Image"}/>
+                                <Img sizes={post.node.acf.section_six.image_one.localFile.childImageSharp.sizes} alt={post.node.acf.section_six.image_one.title}/>
                                 </a>
                             </div>
                             <div class={"plus-col"}>
@@ -314,7 +320,7 @@ const ServicesPage = () => {
                             </div>
                             <div class={"link-col"}>
                                 <a href={post.node.acf.section_six.link_two}>
-                                <Img sizes={post.node.acf.section_six.image_two.localFile.childImageSharp.sizes} alt={"Services Image"}/>
+                                <Img sizes={post.node.acf.section_six.image_two.localFile.childImageSharp.sizes} alt={post.node.acf.section_six.image_two.title}/>
                                 </a>
                             </div>
                             {/* <div class={"plus-col"}>

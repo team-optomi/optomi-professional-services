@@ -61,7 +61,7 @@ class SideMainMenu extends Component {
                 </MenuItem>
                 <MenuItem>
                     <Link
-                    to="/blog/"
+                    to="/insights/"
                     >
                     Insights
                     </Link>
