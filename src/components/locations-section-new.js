@@ -64,7 +64,7 @@ class LocationsSection extends Component {
                 >
                     <ModalContent>
                     <button onClick={() => this.handleCloseModal()} class={"close"} aria-label="Close">×</button>
-                    <iframe title="location map" src={post.node.acf.map_embed} width={"100%"} height={"650"} frameborder={"0"} style={{ border: "0" }} allowfullscreen={""} aria-hidden={"false"}></iframe>
+                    <iframe title="location map" src={post.node.acf.iframe} width={"100%"} height={"650"} frameborder={"0"} style={{ border: "0" }} allowfullscreen={""} aria-hidden={"false"}></iframe>
                     </ModalContent>
                 </CustomModal>
             </div>
