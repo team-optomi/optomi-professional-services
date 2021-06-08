@@ -7,6 +7,7 @@ import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import HomeCaseStudies from "../components/home-sections/home-case-studies"
 
 import { FaTwitter } from 'react-icons/fa'
 import { FaLinkedinIn } from 'react-icons/fa'
@@ -180,6 +181,7 @@ const ClientsPage = () => {
                         <SectionTwoLink href={post.node.acf.section_two.section_two_link}>{post.node.acf.section_two.section_two_link_copy}</SectionTwoLink>
                     </SectionTwoRow>
                 </SectionTwo>
+                <HomeCaseStudies />
             </Layout>
             
         ))

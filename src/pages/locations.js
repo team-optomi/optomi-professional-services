@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import LocationsSection from "../components/locations-section"
+import LocationsSection from "../components/locations-section-new"
 
 import { FaTwitter } from 'react-icons/fa'
 import { FaLinkedinIn } from 'react-icons/fa'
@@ -81,15 +81,7 @@ const ContactPage = () => {
                     </HeroSocials>
                 </ClientsBanner>
                 <SectionOne id={"section_one"}>
-                    <SectionOneRow>
-                        <h2
-                        data-sal="slide-up"
-                        data-sal-duration="1000"
-                        data-sal-delay="300"
-                        data-sal-easing="ease"
-                        >Locations</h2>
-                        <LocationsSection/>
-                    </SectionOneRow>
+                    <LocationsSection/>
                 </SectionOne>
             </Layout>
             
@@ -228,6 +220,11 @@ const HeroContent = styled.div`
     }
     @media(max-width:600px) {
         margin-top: 30px;
+        p {
+            br {
+                display: none;
+            }
+        }
     }
 `
 

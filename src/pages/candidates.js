@@ -173,7 +173,7 @@ const CandidatesPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div class={"main-section"} id={"section_two"}>
+                    {/* <div class={"main-section"} id={"section_two"}>
                         <div class={"main-section-row"}>
                             <div class={"col-one"}
                             data-sal="slide-right"
@@ -196,11 +196,19 @@ const CandidatesPage = () => {
                                  <a href={post.node.acf.section_two.button_link} target="_blank" rel="noopener noreferrer">{post.node.acf.section_two.button_copy}</a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div class={"main-section"} id={"section_three"}>
                         <div class={"main-section-row"}>
                             <div class={"col-one"}
                             data-sal="fade"
+                            data-sal-duration="1000"
+                            data-sal-delay="300"
+                            data-sal-easing="ease"
+                            >
+                                <Img sizes={post.node.acf.section_three.image.localFile.childImageSharp.sizes} alt={"Candidates Image"}/>
+                            </div>
+                            <div class={"col-two"}
+                            data-sal="slide-left"
                             data-sal-duration="1000"
                             data-sal-delay="300"
                             data-sal-easing="ease"
@@ -210,14 +218,6 @@ const CandidatesPage = () => {
                                     dangerouslySetInnerHTML={{ __html: post.node.acf.section_three.content }}
                                 />
                                  <a href={post.node.acf.section_three.button_link} target="_blank" rel="noopener noreferrer">{post.node.acf.section_three.button_copy}</a>
-                            </div>
-                            <div class={"col-two"}
-                            data-sal="slide-left"
-                            data-sal-duration="1000"
-                            data-sal-delay="300"
-                            data-sal-easing="ease"
-                            >
-                                <Img sizes={post.node.acf.section_three.image.localFile.childImageSharp.sizes} alt={"Candidates Image"}/>
                             </div>
                         </div>
                     </div>

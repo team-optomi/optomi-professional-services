@@ -175,7 +175,7 @@ const ServicesPage = () => {
                         >
                                 <button onClick={() => scrollTo('#section_two')} aria-label="Development Button">Development</button>
                                 <button onClick={() => scrollTo('#section_three')} aria-label="Functional Roles Button">Functional Roles</button>
-                                <button onClick={() => scrollTo('#section_four')} aria-label="Infastructure Button">Infastructure</button>
+                                <button onClick={() => scrollTo('#section_four')} aria-label="Infrastructure Button">Infrastructure</button>
                                 {/* <button onClick={() => scrollTo('#section_five')} aria-label="Healthcare IT Button">Healthcare IT</button> */}
                         </SectionLinks>
                     </div>
@@ -630,12 +630,12 @@ const MainSections = styled.div`
                 margin-top: 5px;
                 margin-bottom: 20px;
             }
-            li {
+            li, p {
                 font-family: "Helvetica Thin";
                 color: #fff;
                 font-size: 22px;
                 line-height: 1.2;
-                margin-bottom: 5px;
+                margin-bottom: 20px;
             }
             @media(max-width:1200px) {
                 max-width: 990px;
@@ -660,7 +660,7 @@ const MainSections = styled.div`
     #section_four {
         background-color: #d6d7d6;
         h2,
-        li {
+        li, p {
             color: #000;
         }
         hr {
