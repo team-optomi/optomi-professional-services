@@ -218,13 +218,15 @@ const HeroContent = styled.div`
     @media(max-width:1200px) {
         max-width: 990px;
     }
-    @media(max-width:600px) {
-        margin-top: 30px;
+    @media(max-width:820px) {
         p {
             br {
                 display: none;
             }
         }
+    }
+    @media(max-width:600px) {
+        margin-top: 30px;
     }
 `
 

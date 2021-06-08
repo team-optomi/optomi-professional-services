@@ -148,7 +148,14 @@ const Location = styled.div`
     width: 100%;
     button {
       h3 {
-        font-size: 32px;
+        font-size: 24px;
+      }
+    }
+  }
+  @media(max-width:820px) {
+    button {
+      h3 {
+        font-size: 20px;
       }
     }
   }
@@ -183,9 +190,6 @@ const LocationsMain = styled.div`
           }
         }
         @media(max-width:768px) {
-          button {
-            max-width: 220px;
-          }
           ${LocImg} {
             img {
               object-position: 25% 50% !important;
@@ -250,16 +254,42 @@ const LocationsMain = styled.div`
           }
         }
       }
+      &:nth-child(6) {
+        button {
+          margin-left: auto;
+        }
+      }
       &:nth-child(7) {
+        .gatsby-image-wrapper {
+          opacity: .5;
+        }
         ${Location} {
           > div {
             max-width: 80%;
           }
         }
       }
-      &:nth-child(6) {
+      &:nth-child(8) {
+        .gatsby-image-wrapper {
+          opacity: .5;
+        }
         button {
           margin-left: auto;
+        }
+        ${Location} {
+          > div {
+            max-width: 80%;
+          }
+        }
+      }
+      &:nth-child(9) {
+        .gatsby-image-wrapper {
+          opacity: .5;
+        }
+        ${Location} {
+          > div {
+            max-width: 80%;
+          }
         }
       }
   }
