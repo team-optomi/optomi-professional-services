@@ -279,7 +279,7 @@ const HeroContent = styled.div`
                     font-family: "Helvetica Thin";
                     font-size: 24px;
                     line-height: 1.2;
-                    color: #8c9192;
+                    color: #fff;
                     @media(max-width:420px) {
                         font-size: 14px;
                         line-height: 1.2;
@@ -301,7 +301,7 @@ const HeroBottom = styled.div`
         font-family: "Helvetica Thin";
         text-align: center;
         margin: 0;
-        color: rgb(140, 145, 146);
+        color: #fff;
         @media(max-width:500px) {
             display: none;
         }

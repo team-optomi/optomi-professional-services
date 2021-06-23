@@ -1,6 +1,6 @@
 import React from "react"
 import BlogLayout from "../components/blog-layout"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import styled from 'styled-components'
@@ -34,6 +34,7 @@ const CaseStudy = ({ data }) => (
           </div>
           <div class="section-three">
             <div class="section-three-copy" dangerouslySetInnerHTML={{ __html: data.wordpressWpCaseStudy.acf.case_study_section_three }} />
+            <Link className={"bottom-button"} to="/case-studies/" >Back to Case Studies</Link>
           </div>
         </MainSection>
 
@@ -190,6 +191,21 @@ const MainSection = styled.section`
   .section-three {
     background-color: #000;
     padding: 100px 20px;
+    a.bottom-button {
+      display: block;
+      width: 250px;
+      margin: 0 auto;
+      margin-top: 50px;
+      text-align: center;
+      background-color: rgb(97,177,232);
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 0;
+      border-radius: 35px;
+      font-family: "Helvetica Thin";
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
     > div {
       max-width: 800px;
       width: 100%;

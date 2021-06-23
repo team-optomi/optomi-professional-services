@@ -169,6 +169,7 @@ const ClientsPage = () => {
                         </SectionOneCol>
                     </SectionOneRow>
                 </SectionOne>
+                <HomeCaseStudies />
                 <SectionTwo>
                     <SectionTwoRow
                         data-sal="slide-right"
@@ -181,7 +182,6 @@ const ClientsPage = () => {
                         <SectionTwoLink href={post.node.acf.section_two.section_two_link}>{post.node.acf.section_two.section_two_link_copy}</SectionTwoLink>
                     </SectionTwoRow>
                 </SectionTwo>
-                <HomeCaseStudies />
             </Layout>
             
         ))
@@ -315,6 +315,14 @@ const HeroContent = styled.div`
         @media(max-width:500px) {
             font-size: 18px;
             color: #fff;
+            span {
+                &.mobile-full {
+                    display: block;
+                }
+                &.mobile-hide {
+                    display: none;
+                }
+            }
         }
     }
     @media(max-width:600px) {

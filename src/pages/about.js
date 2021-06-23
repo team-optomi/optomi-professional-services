@@ -1,11 +1,12 @@
 import React from "react"
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from "gatsby-image"
-import scrollTo from 'gatsby-plugin-smoothscroll';
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import LeadershipSectionSimple from "../components/leadership-section-simple"
 
 import { FaTwitter } from 'react-icons/fa'
 import { FaLinkedinIn } from 'react-icons/fa'
@@ -108,11 +109,41 @@ const AboutPage = () => {
                             data-sal="slide-up"
                             data-sal-duration="1000"
                             data-sal-delay="300"
-                            data-sal-easing="ease"
-                            dangerouslySetInnerHTML={{ __html: post.node.acf.section_two_content }}
-                        />
+                            data-sal-easing="ease">
+                                <div dangerouslySetInnerHTML={{ __html: post.node.acf.section_two_content }} />
+                                <div class="about-links">
+                                    <button onClick={() => scrollTo('#about_leadership')} aria-label="Scroll">Leadership</button>
+                                    <Link to="/founders/">Founders</Link>
+                                </div>
+                                <hr />
+                                <p class="sub-text">INFORMATION TECHNOLOGY CONSULTING • TEAM AUGMENTATION • RURAL IMPACT OUTSOURCING</p>
+                            </SectionTwoContent>
                     </SectionTwoRow>
                 </SectionTwo>
+                <LeadershipBanner>
+
+                    <LeaderContent 
+                        data-sal="slide-up"
+                        data-sal-duration="1000"
+                        data-sal-delay="300"
+                        data-sal-easing="ease">
+                            <p>Optomi Professional Services employs a team of innovative thinkers, industry disruptors, and refreshingly enterprising strategists influencing a more purpose-driven world.</p>
+                    </LeaderContent>
+
+                    <LeaderBottom
+                        data-sal="fade"
+                        data-sal-duration="1000"
+                        data-sal-delay="300"
+                        data-sal-easing="ease"
+                    >
+                        <p>{post.node.acf.bottom_subtitle}</p>
+                        <button onClick={() => scrollTo('#about_leadership')} aria-label="Scroll"><FaChevronDown size={32}/></button>
+                    </LeaderBottom>
+
+                </LeadershipBanner>
+                <LeadershipCustom id={"about_leadership"}>
+                    <LeadershipSectionSimple/>
+                </LeadershipCustom>
             </Layout>
             
         ))
@@ -381,6 +412,44 @@ const SectionTwoRow = styled.div`
     width: 100%;
     text-align: center;
     border-top: 1px solid #818181;
+    .about-links {
+        margin-top: 35px;
+        button {
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-family: "Helvetica Thin";
+            color: rgb(90, 179, 232);
+            margin: 0 20px;
+            font-size: 32px;
+            font-weight: 100;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding: 0px;
+            outline: 0px;
+            text-decoration: none;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        a {
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-family: "Helvetica Thin";
+            color: rgb(90, 179, 232);
+            margin: 0 20px;
+            font-size: 32px;
+            font-weight: 100;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding: 0px;
+            outline: 0px;
+            text-decoration: none;
+        }
+    }
 `
 
 const SectionTwoContent = styled.div`
@@ -402,7 +471,7 @@ const SectionTwoContent = styled.div`
     hr {
         background-color: #8b8f91;
         max-width: 400px;
-        margin: 80px auto 20px;
+        margin: 35px auto 20px;
     }
     p {
         font-family: "Helvetica Thin";
@@ -433,6 +502,84 @@ const SectionTwoContent = styled.div`
             font-size: 20px;
         }
     }
+`
+
+const LeadershipBanner = styled.div`
+    position: relative; 
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @media (max-width:600px) {
+        display: block;
+    }
+`
+
+const LeaderContent = styled.div`
+    position: relative;
+    z-index: 10;
+    min-width: 100vw;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    p {
+        font-family: "Helvetica Thin";
+        width: 100%;
+        z-index: 1;
+        font-size: 32px;
+        color: #5ab3e8;
+        line-height: 1.2;
+        max-width: 1200px;
+        margin: 0 auto;
+        @media(max-width:1200px) {
+            font-size: 28px;
+            max-width: 990px;
+        }
+        @media(max-width:600px) {
+            font-size: 24px;
+        }
+        @media(max-width:500px) {
+            font-size: 18px;
+            color: #fff;
+        }
+    }
+    @media(max-width:600px) {
+        margin-top: 30px;
+    }
+`
+
+const LeaderBottom = styled.div`
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    p {
+        font-family: 'Freeland';
+        font-size: 50px;
+        line-height: 1.1;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 120px;
+        color: #fff;
+    }
+    button {
+        color: #5ab3e8;
+        background-color: transparent;
+        border: none;
+        outline: 0;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+`
+
+const LeadershipCustom = styled.div`
+
 `
 
 export default AboutPage

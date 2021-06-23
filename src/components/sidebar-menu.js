@@ -73,7 +73,7 @@ class SideMainMenu extends Component {
                     Newsroom
                     </Link>
                 </MenuItem>
-                <MenuItem>
+                {/* <MenuItem>
                     <Link
                     to="/leadership/"
                     >
@@ -86,7 +86,7 @@ class SideMainMenu extends Component {
                     >
                     Founders
                     </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem>
                     <Link
                     to="/contact/"
