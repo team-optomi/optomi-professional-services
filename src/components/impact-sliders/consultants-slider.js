@@ -186,6 +186,7 @@ const SliderContainer = styled.div`
     }
   }
   @media(max-width:500px) {
+    height: 250px;
     .slick-list{
       padding: 0 !important;
       overflow: visible;
