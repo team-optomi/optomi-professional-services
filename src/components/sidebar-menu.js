@@ -43,7 +43,11 @@ class SideMainMenu extends Component {
                     </Link>
                 </MenuItem>
                 <MenuItem>
-                    <a href="http://www.optomiserves.com/">Impact</a>
+                    <Link
+                    to="/impact/"
+                    >
+                    Impact
+                    </Link>
                 </MenuItem>
                 <MenuItem>
                     <Link

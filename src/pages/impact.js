@@ -357,7 +357,7 @@ const HeroSection = styled.section`
             span {
                 font-family: Freeland;
                 color: rgb(90, 179, 232);
-                font-size: 72px;
+                font-size: 120px;
                 line-height: 52px;
                 font-weight: 100;
                 padding-left: 200px;
@@ -406,6 +406,7 @@ const HeroSection = styled.section`
         }
     }
     .heart-container {
+        display: none;
         position: absolute;
         right: 0;
         top: 0;
@@ -658,10 +659,21 @@ const MainSection = styled.section`
                 p {
                     color: #fff;
                     text-align: right;
+                    a {
+                        color: rgb(142, 143, 145);
+                        text-decoration: none;
+                        transition-duration: .3s;
+                        &:hover {
+                            color: rgb(90,179,232);
+                        }
+                    }
                     span {
                         color: rgb(90,179,232);
                     }
                 }
+            }
+            @media(max-width: 1200px) {
+                max-height: 100%;
             }
         }
     }
