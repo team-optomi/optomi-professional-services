@@ -54,7 +54,7 @@ const IndexPage = () => {
         {/* <HomeThreeCol/> */}
         {/* <LeadershipSection/> */}
         <HomeParallax/>
-        <HomeBottom/>
+        {/* <HomeBottom/> */}
       </HomeLayout>
     ))
   )

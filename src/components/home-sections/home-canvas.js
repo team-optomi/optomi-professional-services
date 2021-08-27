@@ -48,7 +48,7 @@ const HomeCanvas = () => {
 
 const CanvasSection = styled.div`
     background-color: #ffffff;
-    padding-top: 120px;
+    padding-top: 100px;
     padding-bottom: 80px;
     text-align: center;
     position: relative;
@@ -64,11 +64,11 @@ const CanvasContent = styled.div`
     z-index: 2;
     p {
         font-family: "Helvetica Thin";
-        font-size: 32px;
+        font-size: 24px;
         font-weight: bold;
         letter-spacing: 1px;
-        margin-bottom: 40px;
-        line-height: 40px;
+        margin-bottom: 20px;
+        line-height: 1.3;
         &.canvas-buttons {
             a {
                 width: 178px;

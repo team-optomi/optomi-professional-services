@@ -73,9 +73,9 @@ const HomeParallax = () => {
                     />
                 </div>
                     
-                <div class={"parallax-bottom"}>
+                {/* <div class={"parallax-bottom"}>
                     <hr/>
-                </div>
+                </div> */}
             </ParallaxSection>
         ))
     )
