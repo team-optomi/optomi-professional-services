@@ -68,7 +68,7 @@ const FoundersPage = () => {
                         data-sal-easing="ease"
                         >
                             <h2>Todd Black</h2>
-                            <h3>Board Member</h3>
+                            <h3>Cofounder</h3>
                         </HeroName>
                         <HeroName
                         data-sal="slide-up"
@@ -76,7 +76,7 @@ const FoundersPage = () => {
                         data-sal-easing="ease"
                         >
                             <h2>Radka Winwood</h2>
-                            <h3>CSO</h3>
+                            <h3>Cofounder & President, Optomi</h3>
                         </HeroName>
                         <HeroName
                         data-sal="slide-up"
@@ -84,7 +84,7 @@ const FoundersPage = () => {
                         data-sal-easing="ease"
                         >
                             <h2>Christen Black</h2>
-                            <h3>CMO</h3>
+                            <h3>Cofounder & CMO</h3>
                         </HeroName>
                         <HeroName
                         data-sal="slide-up"
@@ -92,7 +92,7 @@ const FoundersPage = () => {
                         data-sal-easing="ease"
                         >
                             <h2>Michael Winwood</h2>
-                            <h3>Chairman & CEO</h3>
+                            <h3>Cofounder & Chairman</h3>
                         </HeroName>
                     </HeroMain>
 
