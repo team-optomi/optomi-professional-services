@@ -114,6 +114,7 @@ const AboutPage = () => {
                                 <div class="about-links">
                                     <button onClick={() => scrollTo('#about_leadership')} aria-label="Scroll">Leadership</button>
                                     <Link to="/founders/">Founders</Link>
+                                    <Link to="/history/">History</Link>
                                 </div>
                                 <hr />
                                 <p class="sub-text">INFORMATION TECHNOLOGY CONSULTING • TEAM AUGMENTATION • RURAL IMPACT OUTSOURCING</p>
