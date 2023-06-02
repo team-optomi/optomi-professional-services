@@ -65,7 +65,7 @@ class LeadershipSection extends Component {
                             <BackgroundImg sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} />
                             <BackgroundImgBW sizes={post.node.acf.gray_image.localFile.childImageSharp.sizes} alt={post.node.title} />
                             <div class={"slide-overlay"}>
-                                <div class={"slide-row"}>
+                                <div class={"slide-row"} style={{justifyContent: post.node.acf.content_alignment}}>
                                     <div 
                                         class={"slide-content"}
                                         data-sal="slide-up"
@@ -568,6 +568,7 @@ export default props => (
                             menu_title
                             linkedin_link
                             team_category
+                            content_alignment
                             gray_image {
                                 localFile {
                                     childImageSharp {
